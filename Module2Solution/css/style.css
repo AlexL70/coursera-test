@@ -1,0 +1,81 @@
+/* style itself */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 30px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 1.75em;
+}
+
+div.row {
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+div.section {
+	position: relative;
+	padding: 15px;
+	margin: 1%;
+	float: left;
+	background-color: #CFCFDF;
+	border: solid 1px black;
+}
+
+div.title {
+	font-weight: 500;
+	font-size: 1.25em;
+	color: #0F00A0;
+	border: solid 1px black;
+	margin-bottom: 10px;
+	padding: 5px;
+	position: absolute;
+	right: -1px;
+	top: -1px;
+}
+
+div.content {
+	padding-top: 2em;
+}
+
+div.title.first {
+	background-color: #FFCFAF;
+	color: #003050;
+}
+
+div.title.second {
+	background-color: #FFFFDF;
+	color: #000020;
+}
+
+div.title.third {
+	background-color: #DFFFDF;
+	color: #200020;
+}
+
+div.content {
+	margin-top: 30px;
+}
+
+/* large device view (>= 992px) */
+@media (min-width: 992px) {
+	div.section {
+		width: 31%;
+	}
+}
+/* tablet view (768px <= x <= 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+	div.section {
+		width: 48%;
+	}
+	div.last {
+		width: 98%;
+	}
+}
+/* mobile view (<= 767px)*/
+@media (max-width: 767px) {
+
+}
