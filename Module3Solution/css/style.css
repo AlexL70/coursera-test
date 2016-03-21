@@ -1,0 +1,57 @@
+body {
+	font-size: 16px;
+	font-family: 'Bitter', serif;
+}
+
+.navbar {
+	background-color: #7F7F7F;
+	color: #FFDFDF;
+	border-radius: 0;
+	min-height: 90px;
+}
+
+.navbar-brand h1 { /* Restaraunt name */
+	color: #4A0000;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+#collapsable-nav {
+	padding-top: 10px;
+	border: none;
+}
+
+#collapsable-nav > ul {
+	border: solid #0000AF;
+	border-width: 2px 0 0 0
+}
+
+#collapsable-nav > ul > li {
+	border: solid #0000AF;
+	border-width: 0 2px 2px 2px;
+}
+
+#collapsable-nav > ul > li > a {
+	color: white;
+	background-color: #AFAFB8;
+}
+
+#collapsable-nav > ul > li > a:hover {
+	color: #FFFFAF;
+	background-color: #AFAFCF;
+}
+
+#menu-header {
+	padding: 0;
+	margin: 0;
+	background-color: white;
+	color: black;
+}
+
+#main-content {
+	background-color: #AFAFAF;
+}
+
+@media  {
+
+}
