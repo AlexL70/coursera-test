@@ -2,8 +2,9 @@ $(function () {		//	Same as document.addEventListener("DomContentLoadedx")
 	//	Same as document.querySelector("#navbarToggle").addEventListener("blur")
 	$("#navbarToggle").blur(function (event) {
 		var screenWidth = window.innerWidth;
+		//console.log("first");
 		if (screenWidth < 768) {
-			$("#collapsable-nav").collapse('hide');
+			$("#collapsable-nav").collapse("hide");
 		}
 	});
 });
@@ -39,6 +40,20 @@ $(function () {		//	Same as document.addEventListener("DomContentLoadedx")
 		return string;
 	};
 
+	//	Remove the class 'active' from home and switch to Menu button
+	var switchMenuToActive = function () {
+		//	Remove 'active' from home button
+		var classes = document.querySelector("#navHomeButton").className;
+		classes = classes.replace(new RegExp("active", "g"), "");
+		document.querySelector("#navHomeButton").className = classes;
+		//	Add 'active' to Menu button if not already there
+		classes = document.querySelector("#navMenuButton").className;
+		if (classes.indexOf("active") == -1) {
+			classes += " active";
+			document.querySelector("#navMenuButton").className = classes;
+		}
+	}
+
 	//	On page load (before images or CSS)
 	document.addEventListener("DOMContentLoaded", function (event) {
 
@@ -54,7 +69,9 @@ $(function () {		//	Same as document.addEventListener("DomContentLoadedx")
 
 		//	Load the menu categories view
 		dc.loadMenuCategories = function () {
+			//console.log("second");
 			showLoading("#main-content");
+			switchMenuToActive();
 			$ajaxUtils.sendGetRequest(
 				allCategoriesUrl,
 				buildAndShowCategoriesHtml);
@@ -64,6 +81,7 @@ $(function () {		//	Same as document.addEventListener("DomContentLoadedx")
 		//	'categoryShort' is a short name of a category
 		dc.loadMenuItems = function (categoryShort) {
 			showLoading("#main-content");
+			switchMenuToActive();
 			$ajaxUtils.sendGetRequest(
 				menuItemsUrl + categoryShort,
 				buildAndShowMenuItemsHtml);
