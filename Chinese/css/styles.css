@@ -99,7 +99,7 @@ body {
 	background-color: #020202;
 	border-top: 0;
 }
-.paner-footer div.row {
+.panel-footer div.row {
 	margin-bottom: 35px;
 }
 #hours, #address {
@@ -245,7 +245,7 @@ h3.menu-item-title {
 	/* Home page */
 	.container .jumbotron {
 		background: url('../images/jumbotron_1200.jpg') no-repeat;
-		height: 657px;
+		height: 675px;
 	}
 	/* End home page */
 }
