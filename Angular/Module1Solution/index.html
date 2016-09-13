@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="/app.js"></script>
+  </head>
+<body ng-app="LunchCheck">
+   <div class="container" ng-controller="LunchController">
+     <h1>Lunch Checker</h1>
+
+         <div class="form-group">
+             <input id="lunch-menu" type="text"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control"
+             ng-model="dishes">
+         </div>
+         <div class="alert alert-info">Please be careful! Empty items are not considered towards the count. 
+           If you want item to be counted you must put at least one non-space symbol between commas.
+           For instance, "item 1, item2, ,item3" would be counted as "3", not "4".
+         </div>
+         <div class="form-group">
+             <button class="btn btn-default" ng-click="CheckIfTooMuch()">Check If Too Much</button>
+         </div>
+         <div class="form-group message alert {{alertClass}}">
+           {{tooMuchMessage}}
+         </div>
+   </div>
+
+</body>
+</html>
