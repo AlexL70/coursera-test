@@ -1,0 +1,1 @@
+Readme file for AngularJS course module 2 solution.
