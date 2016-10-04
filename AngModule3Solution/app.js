@@ -34,6 +34,7 @@
         ndCtrl.NarrowItDown = function() {
             if (ndCtrl.searchTerm === '') {
                 ndCtrl.searchDone = true;
+                ndCtrl.found = [];
                 return;
             }
             var nextPromise = MenuSearchService.getMatchedMenuItems(ndCtrl.searchTerm);
