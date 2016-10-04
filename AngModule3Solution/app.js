@@ -32,10 +32,14 @@
         ndCtrl.searchTerm = '';
 
         ndCtrl.NarrowItDown = function() {
-            ndCtrl.searchDone = true;
+            if (ndCtrl.searchTerm === '') {
+                ndCtrl.searchDone = true;
+                return;
+            }
             var nextPromise = MenuSearchService.getMatchedMenuItems(ndCtrl.searchTerm);
             nextPromise.then(function(result) {
                 ndCtrl.found = result;
+                ndCtrl.searchDone = true;
             });
         }
 
