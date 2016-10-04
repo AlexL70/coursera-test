@@ -28,9 +28,11 @@
         var ndCtrl = this;
 
         ndCtrl.found = [];
+        ndCtrl.searchDone = false;
         ndCtrl.searchTerm = '';
 
         ndCtrl.NarrowItDown = function() {
+            ndCtrl.searchDone = true;
             var nextPromise = MenuSearchService.getMatchedMenuItems(ndCtrl.searchTerm);
             nextPromise.then(function(result) {
                 ndCtrl.found = result;

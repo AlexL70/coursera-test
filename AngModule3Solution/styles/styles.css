@@ -2,6 +2,10 @@ h1 {
     margin-bottom: 30px;
 }
 
+.error {
+    color: red;
+}
+
 .foundItem {
     height: 200px;
 }
