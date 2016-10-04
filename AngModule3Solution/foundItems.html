@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-6 foundItem" ng-repeat="item in foundItems">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">{{item.name}}</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-6">
+                    <span class="glyphicon glyphicon-th" aria-hidden="true"></span> &nbsp;{{item.small_portion_name || "small"}} {{(item.price_small > 0) ? "costs " + (item.price_small | currency) : "unavilable"}}
+                </div>
+                <div class="col-md-6">
+                    <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>&nbsp;{{item.large_portion_name || "large"}} {{(item.price_large > 0) ? "costs " + (item.price_large | currency) : "unavailable" }}
+                </div>
+                <div><span class="glyphicon glyphicon-info-sign" aria-hidden="true">&nbsp;</span>{{item.description}}</div>
+            </div>
+            <div><button ng-click="onRemove({index:$index})">Don't want this one!</button>
+            </div>
+        </div>
+    </div>
+</div>
