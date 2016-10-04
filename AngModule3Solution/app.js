@@ -68,7 +68,7 @@
                 return respPromise
                     .then(function(response) {
                         return response.data.menu_items.filter(function(element, index, array) {
-                            var term = element.name.includes(searchTerm);
+                            var term = element.description.includes(searchTerm);
                             return term;
                         });
                     })
