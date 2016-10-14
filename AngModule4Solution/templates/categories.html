@@ -1,6 +1,5 @@
 <div class="container">
     <div class="row">
-        <h3 class="text-center">Dish categories:</h3>
         <div class="col-md-6" ng-repeat="cat in $ctrl.categories">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -11,7 +10,7 @@
                 <div class="panel-body">
                     {{cat.special_instructions}}
                 </div>
-                <button>View items</button>
+                <button ui-sref="items({categoryShortName: cat.short_name})">View items</button>
             </div>
         </div>
     </div>

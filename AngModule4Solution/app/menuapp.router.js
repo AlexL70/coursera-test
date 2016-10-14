@@ -18,8 +18,26 @@
                 controller: 'CategoriesController as cCtrl'
             })
             .state('items', {
-                url: '/items/{categoryId}',
-                template: '<items-cmp></items-cmp>'
+                url: '/items/{categoryShortName}',
+                templateUrl: 'templates/showItems.html',
+                controller: 'ItemsController as iCtrl',
+                resolve: {
+                    categoryShortName: ['$stateParams', function($stateParams) {
+                        return $stateParams.categoryShortName;
+                    }],
+                    data: ['MenuDataService', '$stateParams',
+                        function(MenuDataService, $stateParams) {
+                            var iPromise = MenuDataService
+                                .getItemsForCategory($stateParams.categoryShortName);
+                            return iPromise.then(function(response) {
+                                    return response.data;
+                                })
+                                .catch(function(response) {
+                                    return null;
+                                });
+                        }
+                    ]
+                }
             });
     }
 })();
