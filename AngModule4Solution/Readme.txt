@@ -1,0 +1,1 @@
+This is a readme file for week for assignment solution of "Single Page Web Applications with AngularJS" course.
