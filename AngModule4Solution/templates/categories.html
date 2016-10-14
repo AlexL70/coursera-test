@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6" ng-repeat="cat in $ctrl.categories">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">
+                        <span>{{cat.short_name}}: </span> {{cat.name}}
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    {{cat.special_instructions}}
+                </div>
+                <button>View items</button>
+            </div>
+        </div>
+    </div>
+</div>
