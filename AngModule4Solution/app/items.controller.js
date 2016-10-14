@@ -4,6 +4,8 @@
     angular.module('MenuApp')
         .controller('ItemsController', ItemsController);
 
+    ItemsController.$inject = ['categoryShortName', 'data'];
+
     function ItemsController(categoryShortName, data) {
         var iCtrl = this;
 
