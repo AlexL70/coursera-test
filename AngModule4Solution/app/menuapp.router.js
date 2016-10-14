@@ -14,7 +14,8 @@
             })
             .state('categories', {
                 url: '/categories',
-                template: '<categories-component></categories-component>'
+                templateUrl: 'templates/showCategories.html',
+                controller: 'CategoriesController as cCtrl'
             })
             .state('items', {
                 url: '/items/{categoryId}',
