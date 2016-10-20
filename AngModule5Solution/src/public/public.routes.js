@@ -30,6 +30,17 @@
                         return MenuService.getCategories();
                     }]
                 }
+            })
+            .state('public.menuitems', {
+                url: '/menu/{category}',
+                templateUrl: 'src/public/menu-items/menu-items.html',
+                controller: 'MenuItemsController',
+                controllerAs: 'menuItemsCtrl',
+                resolve: {
+                    menuItems: ['$stateParams', 'MenuService', function($stateParams, MenuService) {
+                        return MenuService.getMenuItems($stateParams.category);
+                    }]
+                }
             });
     }
 })();
