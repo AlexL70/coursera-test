@@ -23,7 +23,7 @@
                 config.params = { 'category': category };
             }
             return $http.get(ApiPath + '/menu_items.json', config).then(function(response) {
-                return response.data.menu_items;
+                return response.data;
             });
         };
 
