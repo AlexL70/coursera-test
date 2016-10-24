@@ -1,0 +1,28 @@
+<div class="container">
+    <h3 class="text-center">Sign up for newsletters</h3>
+    <fieldset>
+        <legend>User data</legend>
+        <form name="signupForm" novalidate>
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstName" placeholder="enter your first name" ng-model="suCtrl.userInfo.firstName" required minlength="2">
+            <span ng-if="(signupForm.firstName.$error.minlength || signupForm.firstName.$error.required) && signupForm.firstName.$touched">First name must be at least 2 characters long</span>
+            <br>
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="lastName" placeholder="enter your last name" ng-model="suCtrl.userInfo.lastName" required minlength="2">
+            <span ng-if="(signupForm.lastName.$error.minlength || signupForm.lastName.$error.required) && signupForm.lastName.$touched">Last name must be at least 2 characters</span>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="handle@domain" ng-model="suCtrl.userInfo.email" required>
+            <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">Must be a valid email addres</span>
+            <br>
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" placeholder="Phone ###-###-####" ng-model="suCtrl.userInfo.phone" pattern="(\d{3})-(\d{3})-(\d{4})">
+            <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">Must be a valid phone number in the format ###-###-####</span> <br>
+            <label for="menuItem">Menu number:</label>
+            <input type="text" name="menuItem" menu placeholder="Menu number (like L3)" ng-model="suCtrl.userInfo.menuItem" ng-change="suCtrl.checkMenuItem()">
+            <span ng-show="signupForm.menuItem.$pending">Checking if menu item exists</span>
+            <span ng-if="signupForm.menuItem.$invalid && signupForm.menuItem.$touched">Must be existing menu item number</span>
+        </form>
+    </fieldset>
+    <button ng-disabled="signupForm.$invalid" ng-click="suCtrl.submit()">Submit</button>
+</div>

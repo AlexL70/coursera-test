@@ -15,14 +15,14 @@
 
         $ctrl.$onInit = function() {
             $ctrl.show = false;
-            listenerDestroy = $rootScope.$on('spinner:activate', onSpinnerActivate);
+            listenerDestroy = $rootScope.$on('spinner:activate', $ctrl.$onSpinnerActivate);
         };
 
         $ctrl.$onDestroy = function() {
             listenerDestroy();
         };
 
-        $ctrl.onSpinnerActivate = function(event, data) {
+        $ctrl.$onSpinnerActivate = function(event, data) {
             $ctrl.show = data.on;
         };
     };
