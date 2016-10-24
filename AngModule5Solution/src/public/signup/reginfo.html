@@ -1,0 +1,20 @@
+<div class="container">
+    <div ng-if="suCtrl.userInfo.firstName === ''">
+        <h3 class="text-center">You haven't registered yet.</h3>
+        <button class="center-block" ui-sref="public.signup">Register</button>
+    </div>
+    <div ng-if="suCtrl.userInfo.firstName > ''">
+        <h3 class="text-center">Your registration info</h3>
+        <h4 class="text-center">Name: {{suCtrl.userInfo.firstName}} {{suCtrl.userInfo.lastName}}</h4>
+        <h4 class="text-center">Email: {{suCtrl.userInfo.email}}</h4>
+        <h5 class="text-center" ng-show="suCtrl.userInfo.phone > ''">
+            Phone: {{suCtrl.userInfo.phone}}
+        </h5>
+        <div class="col" ng-if="suCtrl.menuItem.name > ''">
+            <h5>
+                Loved dish
+            </h5>
+            <menu-item menu-item="suCtrl.menuItem"></menu-item>
+        </div>
+    </div>
+</div>

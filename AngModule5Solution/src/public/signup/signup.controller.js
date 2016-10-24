@@ -8,7 +8,6 @@
     MenuExists.$inject = ['MenuService', '$q'];
 
     function MenuExists(MenuService, $q) {
-
         return {
             require: 'ngModel',
             link: function(scope, elm, attrs, ctrl) {
@@ -19,39 +18,33 @@
                         return $q.when();
                     }
 
-                    // $timeout(function() {
-                    //     // Mock a delayed response
-                    //     if (usernames.indexOf(modelValue) === -1) {
-                    //         // The username is available
-                    //         def.resolve();
-                    //     } else {
-                    //         def.reject();
-                    //     }
-
-                    // }, 2000);
-
                     return MenuService.menuItemExists(modelValue);
                 };
             }
         };
     }
 
+    SignupController.$inject = ['UserInfo', 'MenuService', '$state'];
 
-
-    SignupController.$inject = ['MenuService'];
-
-    function SignupController(MenuService) {
+    function SignupController(UserInfo, MenuService, $state) {
         var suCtrl = this;
 
-        suCtrl.userInfo = {};
-        suCtrl.userInfo.firstName = '';
-        suCtrl.userInfo.lastName = '';
-        suCtrl.userInfo.email = '';
-        suCtrl.userInfo.phone = '';
-        suCtrl.userInfo.menuItem = '';
+        suCtrl.userInfo = UserInfo.get();
+
+        if (suCtrl.userInfo.menuItem > '') {
+            MenuService.getMenuItem(suCtrl.userInfo.menuItem).then(function(response) {
+                console.log('OK', response);
+                suCtrl.menuItem = response.data;
+            }, function(response) {
+                console.log('Error', response);
+                suCtrl.menuItem = null;
+            });
+            console.log('suCtrl.menuItem', suCtrl.menuItem);
+        }
 
         suCtrl.submit = function() {
-            alert(JSON.stringify(suCtrl.userInfo));
+            UserInfo.set(suCtrl.userInfo);
+            $state.go('public.reginfo');
         }
     }
 })();

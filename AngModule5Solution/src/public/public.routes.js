@@ -47,6 +47,12 @@
                 templateUrl: 'src/public/signup/signup.form.html',
                 controller: 'SignupController',
                 controllerAs: 'suCtrl'
+            })
+            .state('public.reginfo', {
+                url: '/reginfo',
+                templateUrl: 'src/public/signup/reginfo.html',
+                controller: 'SignupController',
+                controllerAs: 'suCtrl'
             });
     }
 })();

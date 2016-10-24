@@ -39,6 +39,10 @@
             return def.promise;
         }
 
+        service.getMenuItem = function(item) {
+            return $http.get(ApiPath + '/menu_items/' + item + '.json');
+        }
+
         return service;
     }
 })();
