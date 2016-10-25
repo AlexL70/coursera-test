@@ -1,3 +1,10 @@
+.absolute-center {
+ position: absolute;
+ left: 50%;
+ top: 50%;
+}
+
+
 .container input {
     width: 300px;
     clear: both;
