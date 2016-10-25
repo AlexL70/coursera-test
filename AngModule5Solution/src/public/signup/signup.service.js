@@ -13,12 +13,24 @@
         userInfo.phone = '';
         userInfo.menuItem = '';
 
+        function getUserInfoCopy(uInfo) {
+            var newUserInfo = {};
+
+            newUserInfo.firstName = uInfo.firstName;
+            newUserInfo.lastName = uInfo.lastName;
+            newUserInfo.email = uInfo.email;
+            newUserInfo.phone = uInfo.phone;
+            newUserInfo.menuItem = uInfo.menuItem;
+
+            return newUserInfo;
+        }
+
         service.get = function() {
-            return userInfo;
+            return getUserInfoCopy(userInfo);
         }
 
         service.set = function(info) {
-            userInfo = info;
+            userInfo = getUserInfoCopy(info);
         }
 
         return service;
